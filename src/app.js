@@ -9,7 +9,8 @@ const forecast = require('./utils/forecast')
 // console.log(path.join(__dirname, '../public')) //print path directory public (untuk file HTML)
 // =======================
 
-const app = express()
+const app  = express()
+const port = process.env.PORT || 3000 // heroku pake env.port, local pake 3000
 
 // define paths for Express Configs
 const publicDirPath = path.join(__dirname, '../public')
@@ -103,6 +104,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+app.listen(port, () => {
+    console.log('Serving on port '+ port)
 })
